@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste PHP</title>
-</head>
-<body>
-  <h1>Array PHP para HTML </h1>
-  <?php
-  function html_table($data = array())
-  {
-    $rows = array();
-    foreach ($data as $row)
-    {
-      $cells = array();
-      foreach ($row as $cell) 
-      {
-        $cells[] = "<td>{$cell}</td>";
-      }
-      $rows[] = "<tr>" . implode('', $cells) . "</tr>";
-    }
-  return "<table class='hci-table'>" . implode('', $rows) . "</table>";
-  }
-  
-  $data = array(
-    array('Aluno 1 Materia 1'),
-    array('Aluno 2 Materia 2'),
-    array('Aluno 3 Materia 3'),
-    array('Aluno 4 Materia 4'),
-    array('Aluno 5 Materia 5'),
-    );
+<?php
 
-  echo html_table($data);
-  ?>
-  </body>
-</html>
+ 	$dados = [
+      ['Aluno 1', 'Materia 1'],
+      ['Aluno 2', 'Materia 1'],
+      ['Aluno 3', 'Materia 3'],
+      ['Aluno 4', 'Materia 3'],
+      ['Aluno 5', 'Materia 2']
+    ];
+	
+	/*
+    	Tabela em html:
+	<table>
+      <tr>
+      	<td>celula 1</td>
+        <td>celula 2</td>
+      </tr>
+     </table>
+	*/
+	
+	echo "<table border='1'>";
+	echo "<tr>";
+		echo "<td>ID</td>";
+		echo "<td>Nome do aluno</td>";
+		echo "<td>Materia</td>";
+	echo "</tr>";
+	foreach($dados as $dado => $nome){
+      	echo "<tr>";
+      		echo "<td>$dado</td>";
+      		echo "<td>$nome[0]</td>";
+      		echo "<td>$nome[1]</td>";
+      	echo "</tr>";
+   		//echo "<li>$dado | $nome[0] | $nome[1]</li>";
+    }//foreach
+	echo "</table>";
+
+?>
